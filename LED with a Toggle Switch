@@ -9,7 +9,7 @@ Board       - ESP32 DevKit-V1
 const int Button_Pin = 2;
 const int LED_Pin = 4;
 
-const int Time_Delay = 100;
+const int Time_Delay = 30;
 
 bool LED_State = true;
 
@@ -25,6 +25,8 @@ void loop()
   {
     LED_State = !(LED_State);
   }
+
+  delay(Time_Delay);
 
   if(LED_State == true)
   {
