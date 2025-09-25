@@ -1,0 +1,51 @@
+/*
+Developer   - Sriram Venkata Krishna
+Date        - 25-09-2025
+Board       - ESP32 DevKit-V1
+*/
+
+//LED with a Toggle Switch
+
+const int Button_Pin = 2;
+const int LED_Pin = 4;
+
+const int Time_Delay = 100;
+
+bool LED_State = true;
+
+void setup()
+{
+  pinMode(Button_Pin, INPUT);
+  pinMode(LED_Pin, OUTPUT);
+}
+
+void loop()
+{
+  if(digitalRead(Button_Pin) == HIGH)
+  {
+    LED_State = !(LED_State);
+  }
+
+  if(LED_State == true)
+  {
+    digitalWrite(LED_Pin, HIGH);
+  }
+  else
+  {
+    digitalWrite(LED_Pin, LOW);
+  }
+
+  delay(Time_Delay);
+}
+
+
+/*
+Connections -
+100 kΩ Resistor - Pull Down GPIO Pin 2 (D2)
+
+Button Switch   - Across 3.3V and GPIO Pin 2 (D2)
+
+220 Ω Resistor  - GPIO Pin 4 (D4)
+LED Anode       - 220 Ω Resistor
+LED Cathode     - Ground
+*/
